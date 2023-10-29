@@ -41,15 +41,15 @@ static function &create($conf=array()) {
 
 	// Add defaults to the config. Defaults do not override values passed in the $conf array
 	$conf += array(
-		'dbtype'	=> 'mysql',
-		'dbhost'	=> 'localhost',
-		'dbport'	=> '',
-		'dbname'	=> 'psychostats',
-		'dbuser'	=> '',
-		'dbpass'	=> '',
+		'dbtype'		=> 'mysql',
+		'dbhost'		=> 'localhost',
+		'dbport'		=> '',
+		'dbname'		=> 'psychostats',
+		'dbuser'		=> '',
+		'dbpass'		=> '',
 		'dbtblprefix'	=> '',
-		'delaydb'	=> 0,
-		'fatal'		=> 1,
+		'delaydb'		=> 0,
+		'fatal'			=> 1,
 	);
 
 	// If no 'dbtype' is specified default to "mysql"

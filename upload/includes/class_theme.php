@@ -152,7 +152,7 @@ function assign_request_vars($list, $globalize = false) {
 		foreach ($list as $var) {
 			$this->assign_by_ref($var, $this->cms->input[$var]);
 			if ($globalize) {
-				$GLOBALS[$var] = &$this->cms->input[$var];
+				$GLOBALS[$var] = $this->cms->input[$var];
 			}
 		}
 	}

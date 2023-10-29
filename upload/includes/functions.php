@@ -361,7 +361,7 @@ function url($arg = array()) {
 	$i = (strpos($base, '?') === FALSE) ? 0 : 1;
 
 	foreach ($arg as $key => $value) {
-		if ($key{0} == '_') continue;		// ignore any param starting with '_'
+		if ($key[0] == '_') continue;		// ignore any param starting with '_'
 		$base .= ($i++) ? $arg['_amp'] : '?';
 		$base .= "$key=";			// do not encode keys
 		$base .= $enc ? $encodefunc($value) : $value;
@@ -800,7 +800,7 @@ function catfile() {
   $path = array_shift($args);
   foreach ($args as $part) {
     if (substr($path, -1, 1) == '/') $path = substr($path, 0, -1);
-    if ($part != '' and $part{0} != '/') $part = '/' . $part;
+    if ($part != '' and $part[0] != '/') $part = '/' . $part;
     $path .= $part;
   }
   // remove the trailing slash if it's present
@@ -1080,7 +1080,7 @@ function query_to_tokens($string) {
     * @param string  $str  string to split.
     * @param integer  $length  character length of each array index. 
     * @return array  Array of characters
-*/
+
 function mb_str_split($str, $length = 1) {
 	// fall back to old str_split if mb_ functions are not available.
 	if (!function_exists('mb_substr')) {
@@ -1097,6 +1097,7 @@ function mb_str_split($str, $length = 1) {
 
 	return $result;
 }
+*/
 
 if (!function_exists('str_split')) {	// str_split is PHP5 only
 	function str_split($string,$string_length=1) {

@@ -1787,7 +1787,7 @@ function import_config($source, $forcetype = false, $opts = array()) {
 			$this->_update_layout($type);
 			$section = '';
 		} 
-		if ($line{0} == '#') continue; 		// ignore comments;
+		if ($line[0] == '#') continue; 		// ignore comments;
 
 		if (preg_match('/^\[([^\]]+)\]/', $line, $m)) {
 			$section = $m[1];

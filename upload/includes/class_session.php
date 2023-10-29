@@ -540,7 +540,7 @@ function delete_session($sid = null) {
 function load_session_options() {
 	$sidname = $this->sid_name('_opts');
 	$o = array();
-	if (array_key_exists($sidname, $this->cms->cookie)) {
+	if (is_array($sidname) && array_key_exists($sidname, $this->cms->cookie)) {
 		$str = $this->cms->cookie[$sidname];
 		// decode -> decrypt -> inflate -> unserialize
 		$str = $this->config['cookieencode'] ? base64_decode($str) : $str;
@@ -574,7 +574,7 @@ function save_session_options($opts = null) {
 //	$this->send_cookie(strlen($encoded), 0, '_opts_size');	// debug
 
 	// add the modified cookie to memory incase we re-read the options before we exit
-	$this->cms->cookie[ $this->sid_name('_opts') ] = $encoded;
+	$this->cms->cookie[$this->sid_name('_opts')] = $encoded;
 }
 
 // deletes the options cookie

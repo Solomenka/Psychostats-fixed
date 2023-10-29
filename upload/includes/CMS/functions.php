@@ -62,7 +62,7 @@ if (!function_exists('ps_session_start')) {
 		$time = $ps->conf['main']['security']['cookie_life'];
 		// do not allow less than 60 seconds for cookies; or users may lock themselves out of the site.
 		if (!is_numeric($time) or $time < 60) $time = 60;
-		$cms->session =& new PsychoSession(array(
+		$cms->session = new PsychoSession(array(
 			'cms'			=> &$cms,
 			'dbhandle'		=> &$cms->db,
 			'db_session_table'	=> $cms->db->table('sessions'),

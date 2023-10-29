@@ -33,7 +33,7 @@ include_once(dirname(__FILE__) . "/DB/DB_PARENT.php");
 class PsychoDB {
 
 // Our factory method to create a valid object for our specified database
-function &create($conf=array()) {
+static function &create($conf=array()) {
 	if (!is_array($conf)) {				// force $conf into an array.
 		$dbhost = $conf;			// If $conf is not an array it's assumed to be a host[:port]
 		$conf = array( 'dbhost' => $dbhost );
@@ -64,7 +64,7 @@ function &create($conf=array()) {
 
 	// Attempt to load the proper class for our specified 'dbtype'.
 	if (!include_once($filepath)) {
-		die("<b>Fatal Error:</b> Unsupported 'dbtype' specified (${conf['dbtype']}) for new DB object.");
+		die("<b>Fatal Error:</b> Unsupported 'dbtype' specified ({$conf['dbtype']}) for new DB object.");
 	} else {
 		$_db = new $classname($conf);
 		return $_db;

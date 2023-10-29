@@ -71,7 +71,7 @@ $cms 		= null;				// global PsychoCMS object
 $PHP_SELF 	= $_SERVER['PHP_SELF'];		// this is used so much we make sure it's global
 // Sanitize PHP_SELF and avoid XSS attacks.
 // We use the constant in places we know we'll be outputting $PHP_SELF to the user
-define(SAFE_PHP_SELF, htmlentities($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'));
+define("SAFE_PHP_SELF", htmlentities($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'));
 
 // create database handle
 $db = PsychoDB::create(array(

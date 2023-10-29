@@ -211,7 +211,7 @@ function init_theme($theme, $opts = array()) {
 		if ($opt) $conf['language'] = $opt;
 	}
 
-	$this->theme =& new PsychoTheme($this, $conf);
+	$this->theme = new PsychoTheme($this, $conf);
 	if ($this->theme->is_theme($conf['theme'], true)) {
 		$this->theme->theme($conf['theme'], $conf['in_db']);
 	} else {
@@ -331,7 +331,7 @@ function load_active_plugins() {
 		} else {
 			// even when plugins are not loaded we still need to track which ones would be loaded
 			// so the plugins.php page can tell which ones are actually installed.
-			$this->plugins[ $plugin ] =& new PsychoPlugin();
+			$this->plugins[ $plugin ] = new PsychoPlugin();
 		}
 	}
 

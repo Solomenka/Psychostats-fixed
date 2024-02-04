@@ -64,7 +64,8 @@ function connect($force_select = false) {
 		);
 	}
 
-	$this->query("SET NAMES 'utf8'");
+	$this->query("SET NAMES 'utf8mb4'");
+	$this->query("SET SESSION sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));");
 
 	return ($this->connected && $this->selected);
 }

@@ -67,7 +67,7 @@ function get_map_heatmaps($mapid, $criteria = array()) {
 #	print $db->lastcmd . "<br/>";
 #	print $db->errstr . "<br/>";
 */
-
+        $db->query("SET SESSION sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));");
 	$list = $db->fetch_rows(1, 
 		"SELECT heatid,heatkey,statdate,enddate,hour,who,h.weaponid,lastupdate,DATEDIFF(enddate,statdate)+1 totaldays" . 
 		",COALESCE(w.name,w.uniqueid) weaponlabel" . 
